@@ -42,8 +42,9 @@ void get_Height_Width(FILE *fold, int32_t *Height, int32_t *Width)
 	// type is long
 	// set file pointer to read height and width
 	fseek(fold,18,SEEK_SET);
-	fread(Height,4,1,fold);
 	fread(Width,4,1,fold);
+	fread(Height,4,1,fold);
+
 
 }
 
