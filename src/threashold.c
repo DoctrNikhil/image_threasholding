@@ -72,7 +72,8 @@ void threashold(char *old_image, char *new_image)
 	fread(&old_pixal_data[0][0][0], Height * Width * bytesPerPixel ,1,fold);
 
 
-	const uint8_t Threashold = 150;
+
+	const uint8_t Threashold = 149;
 
 	for (int i = 0; i < Height; i++)
 	{
