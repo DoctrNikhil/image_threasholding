@@ -7,21 +7,28 @@ C_SRCS += \
 ../src/image_thresholding.c \
 ../src/threashold.c 
 
-OBJS += \
-./src/image_thresholding.o \
-./src/threashold.o 
-
 C_DEPS += \
 ./src/image_thresholding.d \
 ./src/threashold.d 
 
+OBJS += \
+./src/image_thresholding.o \
+./src/threashold.o 
+
 
 # Each subdirectory must supply rules for building sources it contributes
-src/%.o: ../src/%.c
+src/%.o: ../src/%.c src/subdir.mk
 	@echo 'Building file: $<'
-	@echo 'Invoking: Arm C Compiler 6'
-	armclang --target=aarch64-arm-none-eabi -mcpu=cortex-a53+nocrypto -O0 -g -MD -MP -c -o "$@" "$<"
+	@echo 'Invoking: Cross GCC Compiler'
+	arm-linux-gnueabihf-gcc -O0 -g3 -Wall -c  -mfpu=neon -march=armv8-a -marm -mfloat-abi=hard -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
+
+clean: clean-src
+
+clean-src:
+	-$(RM) ./src/image_thresholding.d ./src/image_thresholding.o ./src/threashold.d ./src/threashold.o
+
+.PHONY: clean-src
 

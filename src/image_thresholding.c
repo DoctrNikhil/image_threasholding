@@ -13,10 +13,10 @@
 #include"threashold.h"
 int main(void) {
 
-	threashold("C:\\Users\\DSI-LPT-053\\Documents\\Project\\input\\lena_gray.bmp","C:\\Users\\DSI-LPT-053\\Documents\\Project\\output\\lena_gray_threshold.bmp");
-	threashold("C:\\Users\\DSI-LPT-053\\Documents\\Project\\input\\lena_color.bmp","C:\\Users\\DSI-LPT-053\\Documents\\Project\\output\\lena_color_threshold.bmp");
-	threashold_neon("C:\\Users\\DSI-LPT-053\\Documents\\Project\\input\\lena_gray.bmp", "C:\\Users\\DSI-LPT-053\\Documents\\Project\\output\\lena_gray_threshold_neon.bmp");
-	threashold_neon("C:\\Users\\DSI-LPT-053\\Documents\\Project\\input\\lena_color.bmp", "C:\\Users\\DSI-LPT-053\\Documents\\Project\\output\\lena_color_threshold_neon.bmp");
+	threashold("/home/pi/nikhil/input/lena.bmp","/home/pi/nikhil/output/lena_threshold.bmp");
+	threashold("/home/pi/nikhil/input/lena_color.bmp","/home/pi/nikhil/output/lena_color_threshold.bmp");
+	threashold_neon("/home/pi/nikhil/input/lena.bmp", "/home/pi/nikhil/output/lena_threshold_neon.bmp");
+	threashold_neon("/home/pi/nikhil/input/lena_color.bmp", "/home/pi/nikhil/output/lena_color_threshold_neon.bmp");
 	printf("done");
 	return 0;
 }
